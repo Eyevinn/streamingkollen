@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    video(height=0, width=0, id="test_video")
+    script(type='text/javascript', src='/javascripts/jquery-1.7.2.min.js')
+    script(type='text/javascript', src='/javascripts/swfobject.js')
+    script(type='text/javascript', src='/javascripts/browsertest.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+        var matrix = runTest();
+
+        var e = {};
+        $("#result").text(evaluateMatrix(matrix, e));
+        $("#summary").text(e['summary']);
+        $("#advanced").text(e['advanced']);
+
+        $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked");
+        $("#tMSE").addClass(matrix['supportsMSE'] ? "checked" : "unchecked");
+        $("#tEME").addClass(matrix['supportsEME'] ? "checked" : "unchecked");
+        $("#tFlash").addClass(matrix['supportsFlash'] ? "checked" : "unchecked");
+        $("#tNPAPI").addClass(matrix['supportsNPAPI'] ? "checked" : "unchecked");
+      }); 

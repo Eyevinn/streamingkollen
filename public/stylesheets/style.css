@@ -1,0 +1,72 @@
+@font-face {
+  font-family: LevelOne;
+  src: url(fonts/LevelOne.woff);
+}
+
+body {
+  font: 14px LevelOne, "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+.logosection {
+  margin: auto;
+  width: 50%;
+}
+
+.titlesection {
+  text-align: center;
+  line-height: 50%;
+}
+
+.logo {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.testsection {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+.testresult {
+  width: 50%;
+  margin: auto;
+  text-align: left;
+}
+
+.footer {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.mini {
+  font-size: 0.8em;
+}
+
+.disclaimer {
+  font-size: 0.5em;
+}
+
+.checked {
+  width: 75px;
+  background-image: url('/images/glyphicons-153-check.png');
+  background-repeat: no-repeat;
+}
+
+.unchecked {
+  width: 75px;
+  background-image: url('/images/glyphicons-154-unchecked.png');
+  background-repeat: no-repeat;
+}
+
+

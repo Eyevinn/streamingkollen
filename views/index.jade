@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div.logosection
+    img.logo(src='images/eyevinn-technology-800px.png')
+  div.titlesection
+    h3 presenterar
+    h1 STREAMINGKOLLEN
+  div.testsection
+    p Dina förutsättningar för att kunna konsumera strömmande video i din webbläsare är:
+    h2(id="result") Kör tester...
+    p(id="summary")
+    table.testresult()
+      tr
+        td Mobil
+        td(id="tMobile")
+      tr
+        td MSE
+        td(id="tMSE")
+      tr
+        td EME
+        td(id="tEME")
+      tr
+        td Flash
+        td(id="tFlash")
+      tr
+        td NPAPI
+        td(id="tNPAPI")
+    p.mini(id="advanced")
+  div.footer
+    p.disclaimer Write disclaimer here...
