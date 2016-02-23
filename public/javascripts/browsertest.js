@@ -92,7 +92,12 @@ function runTest() {
   
   // MSE
   var video_element = $("#test_video").get()[0];
-  var media_source = new MediaSource();
+  var media_source;
+  try {
+    media_source = new MediaSource();
+  } catch {
+    console.log("Unable to instatiate MediaSource object");
+  }
   if (media_source) {
     test_matrix['supportsMSE'] = true;
   } else {
