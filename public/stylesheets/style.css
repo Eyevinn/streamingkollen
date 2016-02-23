@@ -6,6 +6,7 @@
 body {
   font: 14px LevelOne, "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0px;
+  background-image: url('/images/bg-light.jpg');
 }
 
 a {
@@ -27,9 +28,10 @@ h1 {
 }
 
 .logo {
-  width: 300px;
+  width: 320px;
   display: block;
   margin: 0 auto;
+  margin-top: 5px;
 }
 
 .testsection {
