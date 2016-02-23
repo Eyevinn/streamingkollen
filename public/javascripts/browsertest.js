@@ -119,6 +119,13 @@ function runTest() {
   } catch(e) {
     console.log("Unable to instatiate MediaSource object");
   }
+  if (media_source === undefined) {
+    try {
+      media_source = new WebKitMediaSource();
+    } catch(f) {
+      console.log("Unable to instatiate WebKitMediaSource object");
+    }
+  }
   if (!(media_source === undefined)) {
     test_matrix['supportsMSE'] = true;
   } else {
