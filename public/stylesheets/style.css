@@ -18,6 +18,7 @@ html, body {
 }
 
 #content {
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
@@ -29,6 +30,18 @@ html, body {
   color: white;
   bottom: 0;
   left: 0;
+}
+
+#score {
+  min-height: 25px;
+}
+
+#summary {
+  min-height: 80px;
+}
+
+#advanced {
+  min-height: 40px;
 }
 
 a {
@@ -54,7 +67,7 @@ h1 {
 }
 
 .logo {
-  width: 320px;
+  width: 240px;
   display: block;
   margin: 0 auto;
   margin-top: 5px;
@@ -95,4 +108,7 @@ h1 {
   background-repeat: no-repeat;
 }
 
-
+.heart {
+  padding-left: 5px;
+  padding-right: 5px;
+}

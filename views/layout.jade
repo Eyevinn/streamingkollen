@@ -20,13 +20,29 @@ html(lang="sv")
         var matrix = runTest();
 
         var e = {};
-        $("#result").html(evaluateMatrix(matrix, e));
-        $("#summary").html(e['summary']);
-        $("#advanced").html(e['advanced']);
+        var grade = evaluateMatrix(matrix, e);
 
-        $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked");
-        $("#tMSE").addClass(matrix['supportsMSE'] ? "checked" : "unchecked");
-        $("#tEME").addClass(matrix['supportsEME'] ? "checked" : "unchecked");
-        $("#tFlash").addClass(matrix['supportsFlash'] ? "checked" : "unchecked");
-        $("#tNPAPI").addClass(matrix['supportsNPAPI'] ? "checked" : "unchecked");
+        var steps = [
+          function() { $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked"); },
+          function() { $("#tMSE").addClass(matrix['supportsMSE'] ? "checked" : "unchecked"); },
+          function() { $("#tEME").addClass(matrix['supportsEME'] ? "checked" : "unchecked"); },
+          function() { $("#tFlash").addClass(matrix['supportsFlash'] ? "checked" : "unchecked"); },
+          function() { $("#tNPAPI").addClass(matrix['supportsNPAPI'] ? "checked" : "unchecked"); },
+          function() {
+            $("#result").html(grade);
+            $("#summary").html(e['summary']);
+            $("#advanced").html(e['advanced']);
+            $("#score").html(scoreToHtml(toScore(grade)));
+          }
+        ];
+
+        var id = setInterval(anim, 200);
+        var stepcounter = 0;
+        function anim() {
+          if (stepcounter > steps.length-1) {
+            clearInterval(id);
+          } else {
+            steps[stepcounter++]();
+          }
+        }
       }); 

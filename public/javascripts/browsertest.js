@@ -1,3 +1,24 @@
+function toScore(grade) {
+  var scoreMatrix = {
+    "Mycket goda": 4,
+    "Goda": 3,
+    "Mindre goda": 2,
+    "Dåliga": 1
+  }
+  return scoreMatrix[grade];
+}
+
+function scoreToHtml(score) {
+  html = "";
+  for(var i=0; i<score; i++) {
+    html += '<img class="heart" src="/images/glyphicons-13-heart.png"/>';
+  }
+  for(var j=0; j<(4-score); j++) {
+    html += '<img class="heart" src="/images/glyphicons-20-heart-empty.png"/>';
+  }
+  return html;
+}
+
 function evaluateMatrix(matrix, ref) {
   console.log(matrix);
   if (matrix['isMobile'] == false &&

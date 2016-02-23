@@ -11,8 +11,10 @@ block content
         h1 STREAMINGKOLLEN
       div.testsection
         p Dina förutsättningar för att kunna konsumera strömmande video i din webbläsare är:
-        h2(id="result") Kör tester...
-        p(id="summary")
+        h2(id="result") Beräknar...
+        p(id="score")
+          img(src='/images/ajax-loader.gif')
+        p(id="summary") 
         table.testresult()
           tr
             td Mobil
