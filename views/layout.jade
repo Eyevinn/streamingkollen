@@ -20,9 +20,9 @@ html(lang="sv")
         var matrix = runTest();
 
         var e = {};
-        $("#result").text(evaluateMatrix(matrix, e));
-        $("#summary").text(e['summary']);
-        $("#advanced").text(e['advanced']);
+        $("#result").html(evaluateMatrix(matrix, e));
+        $("#summary").html(e['summary']);
+        $("#advanced").html(e['advanced']);
 
         $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked");
         $("#tMSE").addClass(matrix['supportsMSE'] ? "checked" : "unchecked");
