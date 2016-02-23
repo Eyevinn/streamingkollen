@@ -119,7 +119,7 @@ function runTest() {
   } catch(e) {
     console.log("Unable to instatiate MediaSource object");
   }
-  if (media_source) {
+  if (!(media_source === undefined)) {
     test_matrix['supportsMSE'] = true;
   } else {
     test_matrix['supportsMSE'] = false;
