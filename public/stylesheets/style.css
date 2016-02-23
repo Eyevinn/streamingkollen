@@ -3,11 +3,32 @@
   src: url('/fonts/LevelOne.woff');
 }
 
-body {
+html, body {
   font: 14px LevelOne, "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background-image: url('/images/bg-light.jpg');
   background-repeat: no-repeat;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+#content {
+  padding-bottom: 50px;
+}
+
+#footer {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background-color: black;
+  color: white;
+  bottom: 0;
+  left: 0;
 }
 
 a {
@@ -16,6 +37,10 @@ a {
 
 h1 {
   font-size: 5em;
+}
+
+#result {
+  font-size: 2em;  
 }
 
 .logosection {
@@ -47,16 +72,14 @@ h1 {
   text-align: left;
 }
 
-.footer {
-  width: 50%;
-  margin: 0 auto;
-}
 
 .mini {
   font-size: 0.8em;
 }
 
 .disclaimer {
+  width: 50%;
+  margin: 0 auto;
   font-size: 0.5em;
 }
 

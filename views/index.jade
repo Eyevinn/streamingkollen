@@ -1,32 +1,36 @@
 extends layout
 
 block content
-  div.logosection
-    img.logo(src='images/eyevinn-technology-700px-transparent.png')
-  div.titlesection
-    h3 presenterar
-    h1 STREAMINGKOLLEN
-  div.testsection
-    p Dina förutsättningar för att kunna konsumera strömmande video i din webbläsare är:
-    h2(id="result") Kör tester...
-    p(id="summary")
-    table.testresult()
-      tr
-        td Mobil
-        td(id="tMobile")
-      tr
-        td MSE
-        td(id="tMSE")
-      tr
-        td EME
-        td(id="tEME")
-      tr
-        td Flash
-        td(id="tFlash")
-      tr
-        td NPAPI
-        td(id="tNPAPI")
-    p.mini(id="advanced")
-  div.footer
-    p.disclaimer Streamingkollen erbjuder endast en rekommendation och ger ingen garanti att berörda tjänster fungerar. Har du problem med någon av streaming-tjänsterna rekommenderar vi att ni hör av er till deras kundtjänst. 
-    p.disclaimer Utgivare: Exceeds Your Expectations Vinn AB, Sköldungagatan 7, 114 27 Stockholm
+  div(id="wrapper")
+    div(id="content")
+      div.logosection
+        a(href="http://www.eyevinntechnology.se")
+          img.logo(src='images/eyevinn-technology-700px-transparent.png')
+      div.titlesection
+        h3 presenterar
+        h1 STREAMINGKOLLEN
+      div.testsection
+        p Dina förutsättningar för att kunna konsumera strömmande video i din webbläsare är:
+        h2(id="result") Kör tester...
+        p(id="summary")
+        table.testresult()
+          tr
+            td Mobil
+            td(id="tMobile")
+          tr
+            td MSE
+            td(id="tMSE")
+          tr
+            td EME
+            td(id="tEME")
+          tr
+            td Flash
+            td(id="tFlash")
+          tr
+            td NPAPI
+            td(id="tNPAPI")
+        p.mini(id="advanced")
+    div(id="footer")
+      div.disclaimer
+        p Streamingkollen erbjuder endast en rekommendation och ger ingen garanti att berörda tjänster fungerar. Har du problem med någon av streaming-tjänsterna rekommenderar vi att ni hör av er till deras kundtjänst. 
+        p Utgivare: Exceeds Your Expectations Vinn AB, Sköldungagatan 7, 114 27 Stockholm
