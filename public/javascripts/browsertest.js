@@ -112,7 +112,11 @@ function runTest() {
   // Flash
   test_matrix['supportsFlash'] = swfobject.hasFlashPlayerVersion('1') ? true : false;
   // NPAPI
-  test_matrix['supportsNPAPI'] = _hasNPAPI();
+  if(test_matrix['isMobile']) == false) {
+    test_matrix['supportsNPAPI'] = _hasNPAPI();
+  } else {
+    test_matrix['supportsNPAPI'] = false;
+  }
   return test_matrix;
 }
 
