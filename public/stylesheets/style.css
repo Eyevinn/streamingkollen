@@ -57,9 +57,16 @@ h1 {
   font-size: 5em;
 }
 
-.fb-share-button {
-  margin-right: 20px;
-  margin-top: 5px;
+.fb-share {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+
+.twitter {
+  position: fixed;
+  right: 110px;
+  top: 10px;
 }
 
 #result {
