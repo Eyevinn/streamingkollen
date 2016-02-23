@@ -20,6 +20,7 @@ block content
         p(id="score")
           img(src='/images/ajax-loader.gif')
         p(id="summary") 
+        p.mini(id="useragent")
         table.testresult()
           tr
             td Mobil
@@ -51,6 +52,8 @@ block content
 
         var e = {};
         var grade = evaluateMatrix(matrix, e);
+
+        $("#useragent").html(navigator.userAgent);
 
         var steps = [
           function() { $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked"); },
