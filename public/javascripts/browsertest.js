@@ -95,7 +95,7 @@ function runTest() {
   var media_source;
   try {
     media_source = new MediaSource();
-  } catch {
+  } catch(e) {
     console.log("Unable to instatiate MediaSource object");
   }
   if (media_source) {
