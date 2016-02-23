@@ -64,7 +64,7 @@ function evaluateMatrix(matrix, ref) {
       matrix['supportsNPAPI'] == true )
   {
     ref.summary = "Det finns goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Dock kan det finnas tjänster som kräver att du har en modernare webbläsare än den du använder för att kunna uppleva en bättre videokvalitét för rättighetsskyddat material.";
-    ref.advanced = "Många webbläsare uppvisar bättre prestanda för videouppspelning när inte Flash- eller Silverlight-baserade videouppspelare används. Det är dock inte möjligt att spela upp rättighetsskyddat innehåll Flash eller Silverlight med din webbläsare.";
+    ref.advanced = "Många webbläsare uppvisar bättre prestanda för videouppspelning när inte Flash- eller Silverlight-baserade videouppspelare används. Det är dock inte möjligt att spela upp rättighetsskyddat innehåll utan Flash eller Silverlight med din webbläsare.";
     return "Goda";
   } else if (matrix['isMobile'] == true &&
       matrix['supportsMSE'] == false &&
