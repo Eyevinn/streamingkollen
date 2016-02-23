@@ -36,3 +36,38 @@ block content
       div.disclaimer
         p Streamingkollen erbjuder endast en rekommendation och ger ingen garanti att berörda tjänster fungerar. Har du problem med någon av streaming-tjänsterna rekommenderar vi att ni hör av er till deras kundtjänst. 
         p Utgivare: Exceeds Your Expectations Vinn AB, Sköldungagatan 7, 114 27 Stockholm
+    video(height=0, width=0, id="test_video")
+    script(type='text/javascript', src='/javascripts/jquery-1.7.2.min.js')
+    script(type='text/javascript', src='/javascripts/swfobject.js')
+    script(type='text/javascript', src='/javascripts/browsertest.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+        var matrix = runTest();
+
+        var e = {};
+        var grade = evaluateMatrix(matrix, e);
+
+        var steps = [
+          function() { $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked"); },
+          function() { $("#tMSE").addClass(matrix['supportsMSE'] ? "checked" : "unchecked"); },
+          function() { $("#tEME").addClass(matrix['supportsEME'] ? "checked" : "unchecked"); },
+          function() { $("#tFlash").addClass(matrix['supportsFlash'] ? "checked" : "unchecked"); },
+          function() { $("#tNPAPI").addClass(matrix['supportsNPAPI'] ? "checked" : "unchecked"); },
+          function() {
+            $("#result").html(grade);
+            $("#summary").html(e['summary']);
+            $("#advanced").html(e['advanced']);
+            $("#score").html(scoreToHtml(toScore(grade)));
+          }
+        ];
+
+        var id = setInterval(anim, 200);
+        var stepcounter = 0;
+        function anim() {
+          if (stepcounter > steps.length-1) {
+            clearInterval(id);
+          } else {
+            steps[stepcounter++]();
+          }
+        }
+      }); 
