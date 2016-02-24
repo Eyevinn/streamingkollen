@@ -40,6 +40,33 @@ function evaluateMatrix(matrix, ref) {
     ref.advanced = "En förutsättning för att det skall fungera på både Chrome och Internet Explorer är att tjänsten använder sig av både Widevine Modular och Playready för skydda det rättighetsskyddade materialet. Använder du Mozilla Firefox så fungerar det inte då det saknas stöd för att hantera rättighettskyddat material.";
     return "Goda";
   } else if (matrix['isMobile'] == false &&
+      matrix['supportsMSE'] == true &&
+      matrix['supportsEME'] == true &&
+      matrix['supportsFlash'] == false &&
+      matrix['supportsNPAPI'] == true )
+  {
+    ref.summary = "Det finns goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Du kan råka ut för problem hos vissa tjänster som bara har Flash-baserad videouppspelning och inte erbjuder någotannat alternativ.";
+    ref.advanced = "Streamingtjänster som har Flash-baserade reklamformat under videouppspelning kan kräva att du har Flash installerat och påslaget i webbläsaren för att kunna spela upp videoströmmarna";
+    return "Goda";
+  } else if (matrix['isMobile'] == true &&
+      matrix['supportsMSE'] == true &&
+      matrix['supportsEME'] == true &&
+      matrix['supportsFlash'] == false &&
+      matrix['supportsNPAPI'] == false )
+  {
+    ref.summary = "Det finns mycket goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder."
+    ref.advanced = "En förutsättning för att kunna spela upp rättighetsskyddat material är att streamingtjänsten använder sig av både Widevine Modular och Playready för att skydda det rättighetsskyddade materialet."
+    return "Mycket goda";
+  } else if (matrix['isMobile'] == false &&
+      matrix['supportsMSE'] == true &&
+      matrix['supportsEME'] == false &&
+      matrix['supportsFlash'] == false &&
+      matrix['supportsNPAPI'] == true )
+  {
+     ref.summary = "Det finns mindre goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Du kan ha problem hos vissa tjänster som tillhandahåller innehåll med krav på rättighetsskydd eller vissa typer av reklamformat.";
+     ref.advanced = "Enda förutsättningen för att kunna titta på rättighetsskyddat innehåll är att tjänsten har en Silverlight-baserad videospelare och att eventuella reklamformat i videon inte är baserade på Flash.";
+     return "Mindre goda";
+  } else if (matrix['isMobile'] == false &&
       matrix['supportsMSE'] == false &&
       matrix['supportsEME'] == false &&
       matrix['supportsFlash'] == true &&
