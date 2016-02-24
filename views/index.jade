@@ -20,6 +20,8 @@ block content
         p(id="score")
           img(src='/images/ajax-loader.gif')
         p(id="summary") 
+        p.mini(id="comparebtn") 
+          a(href="#", onclick="showCompare();") Jämför mitt resultat
         p.mini(id="useragent")
         table.testresult()
           tr
@@ -42,10 +44,89 @@ block content
       div.disclaimer
         p Streamingkollen erbjuder endast en rekommendation och ger ingen garanti att berörda tjänster fungerar. Har du problem med någon av streaming-tjänsterna rekommenderar vi att ni hör av er till deras kundtjänst. 
         p Utgivare: Exceeds Your Expectations Vinn AB, Sköldungagatan 7, 114 27 Stockholm
+    div(id="compare")
+      p.center Jämför dina resultat mot några av tillgängliga streamingtjänster i Sverige
+      table.comparisontable()
+        tr
+          th
+          th Din webbläsare
+          th TV4 Play
+          th Viaplay
+          th C More
+          th SVT Play
+          th Expressen TV
+          th Aftonbladet TV
+          th Netflix
+          th Youtube
+        tr
+          td Mobil
+          td.first(id="cMobile")
+          td.unchecked
+          td.unchecked
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td.unchecked
+          td(class="checked select")
+        tr
+          td MSE
+          td.first(id="cMSE")
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+        tr
+          td EME
+          td.first(id="cEME")
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+          td.unchecked
+          td.unchecked
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+        tr
+          td Flash
+          td.first(id="cFlash")
+          td(class="checked select")
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+        tr
+          td NPAPI
+          td.first(id="cNPAPI")
+          td(class="checked select")
+          td(class="checked select")
+          td(class="checked select")
+          td.unchecked
+          td.unchecked
+          td.unchecked
+          td(class="checked select")
+          td(class="checked select")
+      p(class="mini center") Med reservation för eventuella fel.
+      p.center 
+        a(href="#", onclick="closeCompare();") Stäng fönster
     video(height=0, width=0, id="test_video")
     script(type='text/javascript', src='/javascripts/jquery-1.7.2.min.js')
     script(type='text/javascript', src='/javascripts/swfobject.js')
     script(type='text/javascript', src='/javascripts/browsertest.js')
+    script(type='text/javascript').
+      function showCompare() {
+        $("#compare").css("display", "initial");
+      }
+      function closeCompare() {
+        $("#compare").css("display", "none");
+      }
     script(type='text/javascript').
       $(document).ready(function() {
         var matrix = runTest();
@@ -66,6 +147,12 @@ block content
             $("#summary").html(e['summary']);
             $("#advanced").html(e['advanced']);
             $("#score").html(scoreToHtml(toScore(grade)));
+            $("#comparebtn").css("display", "block");
+            $("#cMobile").addClass(matrix['isMobile'] ? "checked select" : "unchecked"); 
+            $("#cMSE").addClass(matrix['supportsMSE'] ? "checked select" : "unchecked");
+            $("#cEME").addClass(matrix['supportsEME'] ? "checked select" : "unchecked");
+            $("#cFlash").addClass(matrix['supportsFlash'] ? "checked select" : "unchecked");
+            $("#cNPAPI").addClass(matrix['supportsNPAPI'] ? "checked select" : "unchecked");
           }
         ];
 

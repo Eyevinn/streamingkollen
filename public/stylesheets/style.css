@@ -49,6 +49,24 @@ html, body {
   min-height: 40px;
 }
 
+#compare {
+  display: none;
+  background-color: white;
+  width: 800px;
+  min-height: 300px;
+  border: solid 1px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -400px;
+  z-index: 999;
+}
+
+#comparebtn {
+  display: none;
+}
+
 a {
   color: #00B7FF;
 }
@@ -90,6 +108,10 @@ h1 {
   margin-top: 5px;
 }
 
+.center {
+  text-align: center;
+}
+
 .testsection {
   text-align: center;
   margin: auto;
@@ -102,6 +124,24 @@ h1 {
   text-align: left;
 }
 
+.comparisontable {
+  width: 90%;
+  margin: auto;
+  border: 0;
+}
+
+.comparisontable td {
+  border-collapse: collapse;
+}
+
+.comparisontable th {
+  text-align: left;
+  border-bottom: solid 1px;
+}
+
+.select {
+  background-color: #B0E9FF;
+}
 
 .mini {
   font-size: 0.8em;
