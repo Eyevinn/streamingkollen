@@ -39,7 +39,7 @@ function evaluateMatrix(matrix, ref) {
     ref.summary = "Det finns goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Du kan däremot ha problem hos vissa tjänster som tillhandahåller innehåll med krav på rättighetsskydd.";
     ref.advanced = "En förutsättning för att det skall fungera på både Chrome och Internet Explorer är att tjänsten använder sig av både Widevine Modular och Playready för skydda det rättighetsskyddade materialet. Använder du Mozilla Firefox så fungerar det inte då det saknas stöd för att hantera rättighettskyddat material.";
     return "Goda";
-  } else if (matrix['isMobile'] == false &&
+  } else if (matrix['isMobile'] == true &&
       matrix['supportsMSE'] == true &&
       matrix['supportsEME'] == false &&
       matrix['supportsFlash'] == false &&
