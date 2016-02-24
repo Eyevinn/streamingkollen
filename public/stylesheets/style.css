@@ -87,6 +87,12 @@ h1 {
   top: 10px;
 }
 
+.beta {
+  position: fixed;
+  left: 10px;
+  top: 5px;
+}
+
 #result {
   font-size: 2em;  
 }
