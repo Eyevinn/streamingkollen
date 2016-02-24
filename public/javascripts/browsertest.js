@@ -41,6 +41,15 @@ function evaluateMatrix(matrix, ref) {
     return "Goda";
   } else if (matrix['isMobile'] == false &&
       matrix['supportsMSE'] == true &&
+      matrix['supportsEME'] == false &&
+      matrix['supportsFlash'] == false &&
+      matrix['supportsNPAPI'] == false )
+  {
+    ref.summary = "Det finns mindre goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Du har inga möjligheter att titta på innehåll som har krav på rättighetsskydd.";
+    ref.advanced = "En förutsättning för att du skall kunna konsumera innehåll är att tjänsten erbjuder en videospelare som bygger på MSE-tekniken och att innehållet inte är rättighetsskyddat";
+    return "Mindre goda";
+  } else if (matrix['isMobile'] == false &&
+      matrix['supportsMSE'] == true &&
       matrix['supportsEME'] == true &&
       matrix['supportsFlash'] == false &&
       matrix['supportsNPAPI'] == true )
