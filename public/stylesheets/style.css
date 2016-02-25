@@ -1,6 +1,6 @@
 @font-face {
   font-family: LevelOne;
-  src: url('/fonts/LevelOne.woff');
+  src: url('//cdn.streamingkollen.tv/fonts/LevelOne.woff');
 }
 
 html, body {
@@ -8,7 +8,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-image: url('/images/bg-light.jpg');
+  background-image: url('//cdn.streamingkollen.tv/images/bg-light.jpg');
   background-repeat: no-repeat;
 }
 
@@ -161,13 +161,13 @@ h1 {
 
 .checked {
   width: 75px;
-  background-image: url('/images/glyphicons-153-check.png');
+  background-image: url('//cdn.streamingkollen.tv/images/glyphicons-153-check.png');
   background-repeat: no-repeat;
 }
 
 .unchecked {
   width: 75px;
-  background-image: url('/images/glyphicons-154-unchecked.png');
+  background-image: url('//cdn.streamingkollen.tv/images/glyphicons-154-unchecked.png');
   background-repeat: no-repeat;
 }
 

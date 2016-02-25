@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var robots = require('robots.txt');
+var CDN = require('express-simple-cdn');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -35,6 +36,13 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
+// Use CDN when in production
+if (app.get('env') === 'development') {
+  app.locals.CDN = function(path) { return CDN(path); };
+} else {
+  app.locals.CDN = function(path) { return CDN(path, '//cdn.streamingkollen.tv'); };
+}
 
 // error handlers
 

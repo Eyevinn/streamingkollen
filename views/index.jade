@@ -12,7 +12,7 @@ block content
           div.fb-share-button(data-href="http://www.streamingkollen.tv", data-layout="button_count")
       div.logosection
         a(href="http://www.eyevinntechnology.se", border="0")
-          img.logo(src='images/eyevinn-technology-700px-transparent.png')
+          img.logo(src=CDN('/images/eyevinn-technology-700px-transparent.png'))
       div.titlesection
         h3 presenterar
         h1 STREAMINGKOLLEN
@@ -20,7 +20,7 @@ block content
         p Dina förutsättningar för att kunna konsumera strömmande video i din webbläsare är:
         h2(id="result") Beräknar...
         p(id="score")
-          img(src='/images/ajax-loader.gif')
+          img(src=CDN('/images/ajax-loader.gif'))
         p(id="summary") 
         p.mini(id="comparebtn") 
           a(href="#", onclick="showCompare();") Jämför mitt resultat
@@ -126,9 +126,9 @@ block content
       p.center 
         a(href="#", onclick="closeCompare();") Stäng fönster
     video(height=0, width=0, id="test_video")
-    script(type='text/javascript', src='/javascripts/jquery-1.7.2.min.js')
-    script(type='text/javascript', src='/javascripts/swfobject.js')
-    script(type='text/javascript', src='/javascripts/browsertest.js')
+    script(type='text/javascript', src=CDN('/javascripts/jquery-1.7.2.min.js'))
+    script(type='text/javascript', src=CDN('/javascripts/swfobject.js'))
+    script(type='text/javascript', src=CDN('/javascripts/browsertest.js'))
     script(type='text/javascript').
       function showCompare() {
         $("#compare").css("display", "block");
