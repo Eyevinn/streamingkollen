@@ -21,6 +21,8 @@ block content
         h2(id="result") Beräknar...
         p(id="score")
           img(src=CDN('/images/ajax-loader.gif'))
+        p.mini(id="improvebtn") 
+          a(href="#", onclick="showImprove();") Hur kan jag få bättre förutsättningar?
         p(id="summary") 
         p.mini(id="comparebtn") 
           a(href="#", onclick="showCompare();") Jämför mitt resultat
@@ -125,6 +127,12 @@ block content
       p(class="mini center") Med reservation för eventuella fel.
       p.center 
         a(href="#", onclick="closeCompare();") Stäng fönster
+    div(id="improve")
+      h2.center Hur får jag bättre förutsättningar?
+      p.center(id="score2")
+      p.center(id="howto")
+      p.center
+        a(href="#", onclick="closeImprove();") Stäng fönster
     video(height=0, width=0, id="test_video")
     script(type='text/javascript', src=CDN('/javascripts/jquery-1.7.2.min.js'))
     script(type='text/javascript', src=CDN('/javascripts/swfobject.js'))
@@ -136,6 +144,13 @@ block content
       function closeCompare() {
         $("#compare").css("display", "none");
       }
+      function showImprove() {
+        $("#improve").css("display", "block");
+      }
+      function closeImprove() {
+        $("#improve").css("display", "none");
+      }
+      
     script(type='text/javascript').
       $(document).ready(function() {
         var matrix = runTest();
@@ -146,6 +161,10 @@ block content
         $("#useragent").html(navigator.userAgent);
         var score = toScore(grade);
         ga('set', 'metric1', score);
+ 
+        if(!(e['howto'] === undefined)) {
+          $("#howto").html(e['howto']);
+        }
 
         var steps = [
           function() { $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked"); },
@@ -158,7 +177,11 @@ block content
             $("#summary").html(e['summary']);
             $("#advanced").html(e['advanced']);
             $("#score").html(scoreToHtml(toScore(grade)));
+            $("#score2").html(scoreToHtml(4));
             $("#comparebtn").css("display", "block");
+            if(!(e['howto'] === undefined)) {
+              $("#improvebtn").css("display", "block");
+            }
             $("#cMobile").addClass(matrix['isMobile'] ? "checked select" : "unchecked"); 
             $("#cMSE").addClass(matrix['supportsMSE'] ? "checked select" : "unchecked");
             $("#cEME").addClass(matrix['supportsEME'] ? "checked select" : "unchecked");
