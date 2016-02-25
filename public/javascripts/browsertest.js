@@ -37,7 +37,7 @@ function evaluateMatrix(matrix, ref) {
       matrix['supportsNPAPI'] == false )
   {
     ref.summary = "Det finns goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder. Du kan däremot ha problem hos vissa tjänster som tillhandahåller innehåll med krav på rättighetsskydd.";
-    ref.advanced = "En förutsättning för att det skall fungera på både Chrome och Internet Explorer är att tjänsten använder sig av både Widevine Modular och Playready för skydda det rättighetsskyddade materialet. Använder du Mozilla Firefox så fungerar det inte då det saknas stöd för att hantera rättighettskyddat material.";
+    ref.advanced = "En förutsättning för att det skall fungera på både Chrome och Internet Explorer är att tjänsten använder sig av både Widevine Modular (för Chrome) och Playready (för Internet Explorer) för att skydda det rättighetsskyddade materialet. Använder du Mozilla Firefox så fungerar det inte då det saknas stöd för att hantera rättighettskyddat material.";
     return "Goda";
   } else if (matrix['isMobile'] == true &&
       matrix['supportsMSE'] == true &&
@@ -64,7 +64,7 @@ function evaluateMatrix(matrix, ref) {
       matrix['supportsNPAPI'] == false )
   {
     ref.summary = "Det finns mycket goda förutsättningar för att du skall kunna titta på strömmande video med den webbläsare du använder."
-    ref.advanced = "En förutsättning för att kunna spela upp rättighetsskyddat material är att streamingtjänsten använder sig av både Widevine Modular och Playready för att skydda det rättighetsskyddade materialet."
+    ref.advanced = "En förutsättning för att kunna spela upp rättighetsskyddat material är att streamingtjänsten använder sig av både Widevine Modular (för Chrome) och Playready (för Internet Explorer) för att skydda det rättighetsskyddade materialet."
     return "Mycket goda";
   } else if (matrix['isMobile'] == false &&
       matrix['supportsMSE'] == true &&
