@@ -1,0 +1,38 @@
+doctype html
+html(lang="sv")
+  head
+  body
+    pre(id="testresult")
+    script(type='text/javascript', src='/javascripts/browsertest.js')
+    script(type='text/javascript', src='/javascripts/jquery-1.7.2.min.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+        var testcases = [
+          { "isMobile": false, "supportsMSE": true, "supportsEME": true, "supportsFlash": true, "supportsNPAPI": true },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": true, "supportsFlash": false, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": true, "supportsFlash": true, "supportsNPAPI": false },
+          { "isMobile": true, "supportsMSE": true, "supportsEME": false, "supportsFlash": false, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": true, "supportsFlash": false, "supportsNPAPI": true },
+          { "isMobile": true, "supportsMSE": true, "supportsEME": true, "supportsFlash": false, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": false, "supportsFlash": false, "supportsNPAPI": true },
+          { "isMobile": false, "supportsMSE": false, "supportsEME": false, "supportsFlash": true, "supportsNPAPI": true },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": false, "supportsFlash": true, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": false, "supportsFlash": true, "supportsNPAPI": true },
+          { "isMobile": true, "supportsMSE": false, "supportsEME": false, "supportsFlash": false, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": true, "supportsEME": false, "supportsFlash": false, "supportsNPAPI": false },
+          { "isMobile": false, "supportsMSE": false, "supportsEME": false, "supportsFlash": false, "supportsNPAPI": false },
+        ];
+  
+        html = "";
+        for (var i=0; i<testcases.length; i++) {
+          var m = testcases[i];
+          var e = {};
+          var g = evaluateMatrix(m, e);
+          html += "Testcase " + (i+1) + ": " + JSON.stringify(m) + "\n";
+          html += "  grade: " + g + "\n";
+          html += "  summary: " + e.summary + "\n";
+          html += "  advanced: " + e.advanced + "\n";
+          html += "  howto: " + e.howto + "\n";
+        }
+        $("#testresult").html(html); 
+      });
