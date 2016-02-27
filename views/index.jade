@@ -161,6 +161,7 @@ block content
         $("#useragent").html(navigator.userAgent);
         var score = toScore(grade);
         ga('set', 'metric1', score);
+        ga('set', 'dimension1', score);
  
         if(!(e['howto'] === undefined)) {
           $("#howto").html(e['howto']);
