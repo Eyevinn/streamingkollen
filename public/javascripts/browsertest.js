@@ -195,7 +195,7 @@ function runTest() {
 }
 
 function _isMobile() {
-    var isMobile = (/iphone|ipod|android|blackberry|fennec/).test
+    var isMobile = (/iphone|ipod|ipad|android|blackberry|fennec/).test
          (navigator.userAgent.toLowerCase());
     return isMobile;
 }
