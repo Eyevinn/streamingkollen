@@ -22,7 +22,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+var max_age = 0;
+if (app.get('env') !== 'development') {
+  max_age = 3600000; // 1h
+}
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: max_age }));
 app.use(robots(__dirname + '/robots.txt'));
 
 app.use('/', routes);
