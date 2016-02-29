@@ -94,6 +94,14 @@ html, body {
   width: 0px;
 }
 
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
 a {
   color: #00B7FF;
 }

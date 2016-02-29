@@ -43,6 +43,7 @@ block content
           tr
             td NPAPI
             td(id="tNPAPI")
+        p.mini(id="rtmp")
         p.mini(id="advanced")
     div(id="footer")
       div.disclaimer
@@ -151,26 +152,24 @@ block content
       function closeImprove() {
         $("#improve").css("display", "none");
       }
-    script(type='text/javascript').
-
-      function rtmpcheckcb(data) {
-        console.log("RTMP ok? " + data);
-      }
   
     script(type='text/javascript').
+      var matrix;
+      function rtmpcheckcb(data) {
+        if(matrix['supportsFlash']) {
+          console.log("Supports Flash and RTMP ok? " + data);
+          if(data == false) {
+            $("#rtmp").addClass("red");
+            $("#rtmp").html("Det ser ut som att nätverksportarna 1935, 443 och 80 är blockerade vilket vissa Flash-baserade videospelare kräver!");
+          } else {
+            $("#rtmp").addClass("green");
+            $("#rtmp").html("Alla nätverksportar som vissa Flash-baserade videospelare kräver ser ut att vara öppna!");
+          }
+        }
+      }
       $(document).ready(function() {
-        var flashvars = {};
-        var params = {};
-        var attributes = {};
-        swfobject.embedSWF("/flash/rtmpchecker.swf", "rtmpcheck", 1, 1, "10.0.0", "", 
-          flashvars, params, attributes, 
-          function(e) { 
-            if (!e.success) {
-              console.log("Failed to embed RTMP checker");
-            } 
-          });
 
-        var matrix = runTest();
+        matrix = runTest();
         var e = {};
         var grade = evaluateMatrix(matrix, e);
 
@@ -182,6 +181,20 @@ block content
         if(!(e['howto'] === undefined)) {
           $("#howto").html(e['howto']);
         }
+
+        if (matrix['supportsFlash']) {
+          $("#rtmp").html("Kontrollerar nätverksportar...");
+        }
+        var flashvars = {};
+        var params = {};
+        var attributes = {};
+        swfobject.embedSWF("/flash/rtmpchecker20.swf", "rtmpcheck", 400, 400, "10.0.0", "", 
+          flashvars, params, attributes, 
+          function(e) { 
+            if (!e.success) {
+              console.log("Failed to embed RTMP checker");
+            } 
+          });
 
         var steps = [
           function() { $("#tMobile").addClass(matrix['isMobile'] ? "checked" : "unchecked"); },
