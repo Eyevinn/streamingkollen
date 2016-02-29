@@ -89,6 +89,11 @@ html, body {
   display: none;
 }
 
+#rtmpcheck {
+  height: 0px;
+  width: 0px;
+}
+
 a {
   color: #00B7FF;
 }
