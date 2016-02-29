@@ -134,6 +134,7 @@ block content
       p.center
         a(href="#", onclick="closeImprove();") Stäng fönster
     video(height=0, width=0, id="test_video")
+    div(id="rtmpcheck")
     script(type='text/javascript', src=CDN('/javascripts/jquery-1.7.2.min.js'))
     script(type='text/javascript', src=CDN('/javascripts/swfobject.js'))
     script(type='text/javascript', src=CDN('/javascripts/browsertest.js'))
@@ -150,11 +151,26 @@ block content
       function closeImprove() {
         $("#improve").css("display", "none");
       }
-      
+    script(type='text/javascript').
+
+      function rtmpcheckcb(data) {
+        console.log("RTMP ok? " + data);
+      }
+  
     script(type='text/javascript').
       $(document).ready(function() {
-        var matrix = runTest();
+        var flashvars = {};
+        var params = {};
+        var attributes = {};
+        swfobject.embedSWF("/flash/rtmpchecker.swf", "rtmpcheck", 1, 1, "10.0.0", "", 
+          flashvars, params, attributes, 
+          function(e) { 
+            if (!e.success) {
+              console.log("Failed to embed RTMP checker");
+            } 
+          });
 
+        var matrix = runTest();
         var e = {};
         var grade = evaluateMatrix(matrix, e);
 
